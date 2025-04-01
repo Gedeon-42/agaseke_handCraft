@@ -1,0 +1,8 @@
+const env = {
+    // REACT_APP_API_URL: '/api',
+               REACT_APP_API_URL: ' http://localhost:8000',
+
+
+};
+
+export default env;
