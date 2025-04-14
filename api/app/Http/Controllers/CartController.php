@@ -21,8 +21,10 @@ class CartController extends Controller
             $cartItem->quantity += $request->quantity;
             $cartItem->save();
         } else {
+
             // Add new item to cart
             $cart->items()->create([
+
                 'product_id' => $request->product_id,
                 'quantity' => $request->quantity,
                 'price' => $request->price,
@@ -65,7 +67,6 @@ class CartController extends Controller
             return response()->json(['message' => 'Cart is empty'], 404);
         }
 
-
         return response()->json([
             'id' => $cart->id,
             'user_id' => $cart->user_id,
@@ -85,7 +86,7 @@ class CartController extends Controller
                     return [
                         'id' => $item->id,
                         'product_id' => null,
-                        'name' => 'Unknown Puppy',
+                        'name' => 'Unknown Product',
                         'price' => 0,
                         'quantity' => $item->quantity,
                         'image' => null,

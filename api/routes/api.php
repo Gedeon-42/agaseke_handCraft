@@ -37,8 +37,6 @@ Route::delete('/cart/clear', [CartController::class, 'clearCart']);
 Route::delete('/cart/remove/{itemId}', [CartController::class, 'removeCartItem']);
 
 
-
-
 Route::post('/puppies', [ProductController::class, 'store']);
 Route::get('/all-puppies', [ProductController::class, 'arrivals']);
 Route::get('/puppies', [ProductController::class, 'index']);
