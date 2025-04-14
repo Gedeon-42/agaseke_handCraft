@@ -19,6 +19,7 @@ import Settings from "./pages/Dashboard/Settings";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 import NotFound from "./pages/NotFound";
+import Checkout from "./pages/Cart/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/checkout",
+        element:<Checkout/>
       },
       {
         path: "/product/:id",

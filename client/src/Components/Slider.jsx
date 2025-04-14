@@ -5,31 +5,31 @@ const Slider = () => {
   
   const slides = [
     {
-      title: "The Perfect Puppy People",
-      subtitle: "Coffee Machine",
+      title: "Discover Traditional Tolls",
+      subtitle: "Ingoma Gakondo",
       year: "2024/2025",
       description:
         "Magna sed suscipit sed adipiscing varius molestie dui eget nulla commodo wisi, rutrum sed libero etiam quis ac, sagittis massa eget tristique.",
       buttonLabel: "Get It Now",
-      image: "/images/im7.jpg", // Replace with actual image path
+      image: "/images/n19.jpg", // Replace with actual image path
     },
     {
-      title: "The Perfect Puppy People",
-      subtitle: "Coffee Machine",
+      title: "Uduseke",
+      subtitle: "udukeseke twa kinyarwanda",
       year: "2024/2025",
       description:
         "Magna sed suscipit sed adipiscing varius molestie dui eget nulla commodo wisi, rutrum sed libero etiam quis ac, sagittis massa eget tristique.",
       buttonLabel: "Get It Now",
-      image: "/images/pic4.png", // Replace with actual image path
+      image: "/images/n22.jpeg", // Replace with actual image path
     },
     {
-      title: "The Perfect Puppy People",
+      title: "Intebe za kinyarwanda",
       subtitle: "Coffee Machine",
       year: "2024/2025",
       description:
         "Magna sed suscipit sed adipiscing varius molestie dui eget nulla commodo wisi, rutrum sed libero etiam quis ac, sagittis massa eget tristique.",
       buttonLabel: "Get It Now",
-      image: "/images/ibk3.jpg", // Replace with actual image path
+      image: "/images/kin4.jpg", // Replace with actual image path
     },
   ];
 

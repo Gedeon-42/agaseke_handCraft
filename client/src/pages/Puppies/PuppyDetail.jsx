@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import axiosClient from "../../axiosClient";
 import env from "../../env";
 import { ClipLoader } from "react-spinners";
@@ -11,17 +11,9 @@ function PuppyDetail() {
   const [puppy, setPuppy] = useState(null);
   
   const [main_image, setMainImage] = useState(null);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
   const apiUrl=  env.REACT_APP_API_URL
   const{ addToCart} = usestateContext()
-  const product = {
-    id,
-    name: 'Blink Home Security Camera System',
-    mainImage: '/images/dog1.webp',
-    images: ['/images/dog3.jpg', '/images/dog4.jpg', '/images/dog11.avif'],
-    price: 33.00,
-    inStock: 38,
-};
 
 
 useEffect(() => {
@@ -42,19 +34,26 @@ const handleImageClick = (image) => {
 };
 
 const increaseQuantity = () => {
-    if (quantity < product.inStock) {
         setQuantity(quantity + 1);
-    }
+        addToCart(
+          puppy.id,
+          1, // Always increment by 1
+          puppy.price,
+          puppy.name,
+          puppy.main_image // assuming you're storing the filename
+        );
+    
 };
 
 const decreaseQuantity = () => {
-  if (quantity > 1) {
+  if (quantity > 0) {
       setQuantity(quantity - 1);
   }
 };
 
+
 const handleAddToCart = () => {
-  addToCart(puppy.id, 1, puppy.price); // Add 1 item with its price
+  addToCart(puppy.id, 1, puppy.price,puppy.name, puppy.main_image); // Add 1 item with its price
 };
 
 if (!puppy) return <div>
@@ -99,19 +98,26 @@ if (!puppy) return <div>
             <li>BirtDay:11/10/2024</li>
             <li>Color:black & white</li>
           </ul>
-          <p>In Stock: {product.inStock} Items</p>
-          <h1 className="price-h1">Price: ${product.price}</h1>
           <p className="discount-details">Discount:$20%</p>
           <div className="product-info">
-                {/* <div className="quantity-control">
+                <div className="quantity-control">
                     <button onClick={decreaseQuantity}>-</button>
                     <span>{quantity}</span>
                     <button onClick={increaseQuantity}>+</button>
-                </div> */}
+                </div>
                 
-                <button className="add-to-cart-detail" onClick={handleAddToCart}>
-                    Add to Cart
-                </button>
+ {/* Conditionally render buttons */}
+ {quantity === 0 ? (
+            <button className="add-to-cart-detail" onClick={handleAddToCart}>
+              Add to Cart
+            </button>
+          ) : (
+            
+            <Link to="/cart" className="add-to-cart-detail">
+              Buy now
+            </Link>
+          )}
+
             </div>
         </div>
       </div>

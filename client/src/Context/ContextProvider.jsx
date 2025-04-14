@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import {useMutation} from '@tanstack/react-query'
+import { useMutation } from "@tanstack/react-query";
 import axiosClient from "../axiosClient";
+import env from "../env";
 const stateContext = createContext({
   token: null,
   setToken: () => {},
@@ -11,99 +12,109 @@ const stateContext = createContext({
 export const ContextProvider = ({ children }) => {
   const [token, _setToken] = useState(localStorage.getItem("Token"));
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-
   const [cartItems, setCartItems] = useState([]);
   const [cartItemCount, setCartItemCount] = useState(0);
+  const apiUrl= env.REACT_APP_API_URL
 
   // Helper to calculate the total cart item count
-  const calculateItemCount = (items) => items.reduce((total, item) => total + item.quantity, 0);
+  const calculateItemCount = (items) =>
+    items.reduce((total, item) => total + item.quantity, 0);
 
   // Fetch the cart data from the backend
   const fetchCart = async () => {
     const token = localStorage.getItem("Token");
-    if(token){
+    if (token) {
       try {
         const response = await axiosClient.get("/cart");
         const items = response.data?.items || [];
         setCartItems(items);
-        // console.log(items)
+        console.log(items);
         setCartItemCount(calculateItemCount(items));
       } catch (error) {
         console.error("Error fetching cart:", error);
       }
-
-    }else {
+    } else {
       const guestCart = JSON.parse(localStorage.getItem("guest_cart")) || [];
       setCartItems(guestCart);
+      console.log(guestCart);
       setCartItemCount(calculateItemCount(guestCart));
     }
-
-  
   };
 
- // Add an item to the cart (handles both guest and logged-in users)
-  const addToCart = async (productId, quantity, price) => {
-    const cartItem = { product_id: productId, quantity, price };
+  // Add an item to the cart (handles both guest and logged-in users)
+  const addToCart = async (productId, quantity,price,name,image, ) => {
+    const cartItem = {
+      product_id: productId,
+      quantity,
+      price,
+      name, // pass this from where you're calling addToCart
+   
+      image: image,
+    };
     const token = localStorage.getItem("Token");
 
-    if(token){
+    if (token) {
       try {
-        await axiosClient.post("/cart/add", { product_id: productId, quantity, price });
+        await axiosClient.post("/cart/add", {
+          product_id: productId,
+          quantity,
+          price,
+        });
+
         await fetchCart(); // Refresh the cart
       } catch (error) {
         console.error("Error adding to cart:", error);
       }
+    } else {
+      // Guest cart logic
+      const guestCart = JSON.parse(localStorage.getItem("guest_cart")) || [];
+      const existingItem = guestCart.find(
+        (item) => item.product_id === productId
+      );
+
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        guestCart.push(cartItem);
+      }
+
+      localStorage.setItem("guest_cart", JSON.stringify(guestCart));
+      setCartItems(guestCart);
+      console.log(guestCart);
+      setCartItemCount(calculateItemCount(guestCart));
     }
-else{
-   // Guest cart logic
-   const guestCart = JSON.parse(localStorage.getItem("guest_cart")) || [];
-   const existingItem = guestCart.find((item) => item.product_id === productId);
-
-   if (existingItem) {
-    existingItem.quantity += quantity;
-  } else {
-    guestCart.push(cartItem);
-  }
-
-  localStorage.setItem("guest_cart", JSON.stringify(guestCart));
-  setCartItems(guestCart);
-  setCartItemCount(calculateItemCount(guestCart));
-
-}
-  // Sync guest cart to the backend when user logs in
- 
+    // Sync guest cart to the backend when user logs in
   };
 
-const deleteCart = async(productId, quantity, price)=>{
-  const cartItem = { product_id: productId, quantity, price };
-const token = localStorage.getItem("Token")
-if (token){
-  try {
-    await axiosClient.delete(`/cart/remove/${itemId}`);
-    // Re-fetch cart after deletion
-    await fetchCart();
-  } catch (error) {
-    console.error("Error deleting cart item:", error);
-  }
+  const deleteCart = async (productId, quantity, price) => {
+    const cartItem = { product_id: productId, quantity, price };
+    const token = localStorage.getItem("Token");
+    if (token) {
+      try {
+        await axiosClient.delete(`/cart/remove/${productId}`);
+        // Re-fetch cart after deletion
+        await fetchCart();
+      } catch (error) {
+        console.error("Error deleting cart item:", error);
+      }
+    } else {
+      // Guest cart logic
+      const guestCart = JSON.parse(localStorage.getItem("guest_cart")) || [];
+      const existingItem = guestCart.find(
+        (item) => item.product_id === productId
+      );
 
-} else{
-  // Guest cart logic
-  const guestCart = JSON.parse(localStorage.getItem("guest_cart")) || [];
-  const existingItem = guestCart.find((item) => item.product_id === productId);
+      if (existingItem) {
+        existingItem.quantity -= quantity;
+      } else {
+        guestCart.pop(cartItem);
+      }
 
-  if (existingItem) {
-   existingItem.quantity -= quantity;
- }
- else{
-  guestCart.pop(cartItem);  
- } 
-
- localStorage.setItem("guest_cart", JSON.stringify(guestCart));
- setCartItems(guestCart);
- setCartItemCount(calculateItemCount(guestCart));
-
-}
-}
+      localStorage.setItem("guest_cart", JSON.stringify(guestCart));
+      setCartItems(guestCart);
+      setCartItemCount(calculateItemCount(guestCart));
+    }
+  };
 
   const syncCart = async () => {
     const guestCart = JSON.parse(localStorage.getItem("guest_cart")) || [];
@@ -146,7 +157,7 @@ if (token){
     },
     onError: (err) => {
       // alert(err);
-console.log(err)
+      console.log(err);
       setLoading(false);
     },
     onSuccess: (data) => {
@@ -206,7 +217,7 @@ console.log(err)
         addToCart,
         fetchCart,
         deleteCart,
-        syncCart
+        syncCart,
       }}
     >
       {children}

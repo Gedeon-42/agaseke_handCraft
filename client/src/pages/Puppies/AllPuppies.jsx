@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import CategorySidebar from "./CategorySideBar";
+
 import ProductList from "./ProductList";
+import CategorySidebar from "./CategorySidebar";
 
 function AllPuppies() {
   // const categories = ['Backpacks & Bags', 'Belts', 'Accessories', 'Jewellery', 'Sneakers & Shoes', 'Sunglasses'];
