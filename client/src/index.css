@@ -755,6 +755,7 @@
   /* Cart Page Design */
   .cart-wrapper{
     padding: 40px;
+    background-color: var(--bs-light);
   }
   .all-cart-container{
     display: flex;
@@ -778,10 +779,11 @@
   justify-content: space-between;
   border-bottom: 1px solid lightgrey;
   padding: 10px 1px;
+  background-color: white;
   }
   .cart-body img{
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
     border-radius: 4px;
   }
   .cart-details{
@@ -796,7 +798,7 @@
   }
   .btn-clear-cart{
     color: crimson;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
   }
   .cart-content2{

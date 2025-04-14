@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { usestateContext } from "../../Context/ContextProvider";
 import axiosClient from "../../axiosClient";
 import { ClipLoader } from "react-spinners";
+import { FaRegTrashCan } from "react-icons/fa6";
 import env from "../../env";
 
 function Cart() {
@@ -28,7 +29,7 @@ function Cart() {
   }, []);
   if (loading) {
     return (
-      <div>
+      <div className="flex justify-center items-center p-20 text-center min-h-screen">
         <ClipLoader />
       </div>
     );
@@ -77,6 +78,7 @@ function Cart() {
               />
 
               <div className="cart-details">
+                
                 <h3>{item.name}</h3>
                 <p>Rwf {item.price.toLocaleString()}</p>
               </div>
@@ -84,7 +86,7 @@ function Cart() {
                 <h3>Quantity</h3>
                 <p>{item.quantity}</p>
               </div>
-              <FaTrash
+              <FaRegTrashCan
                 onClick={() => deleteCart(item.id)}
                 className="btn-clear-cart"
               />

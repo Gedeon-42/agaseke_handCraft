@@ -28,7 +28,7 @@ export const ContextProvider = ({ children }) => {
         const response = await axiosClient.get("/cart");
         const items = response.data?.items || [];
         setCartItems(items);
-        console.log(items);
+        // console.log(items);
         setCartItemCount(calculateItemCount(items));
       } catch (error) {
         console.error("Error fetching cart:", error);
@@ -36,7 +36,7 @@ export const ContextProvider = ({ children }) => {
     } else {
       const guestCart = JSON.parse(localStorage.getItem("guest_cart")) || [];
       setCartItems(guestCart);
-      console.log(guestCart);
+      // console.log(guestCart);
       setCartItemCount(calculateItemCount(guestCart));
     }
   };
@@ -52,7 +52,6 @@ export const ContextProvider = ({ children }) => {
       image: image,
     };
     const token = localStorage.getItem("Token");
-
     if (token) {
       try {
         await axiosClient.post("/cart/add", {
@@ -80,7 +79,7 @@ export const ContextProvider = ({ children }) => {
 
       localStorage.setItem("guest_cart", JSON.stringify(guestCart));
       setCartItems(guestCart);
-      console.log(guestCart);
+      // console.log(guestCart);
       setCartItemCount(calculateItemCount(guestCart));
     }
     // Sync guest cart to the backend when user logs in
