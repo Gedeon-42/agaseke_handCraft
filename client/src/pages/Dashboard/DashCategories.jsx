@@ -66,7 +66,7 @@ handelEditModal()
 
   return (
     <div className="dash-categories">
-      <div className="categories-header">
+      <div className="dash-puppie-header">
         <h1>Categories</h1>
         <Link onClick={handleOpenModel} className="btn-add-category">Add Categories</Link>
       </div>

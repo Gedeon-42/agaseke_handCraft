@@ -23,6 +23,7 @@ const SalesChart = () => {
       <div className="sales-analytics">
         <h3>Total Sales</h3>
         <div className="sales-span-wrapper">
+          
         <p><span style={{ color: "#0066ff", fontSize:"14", fontWeight: "500" }}>This Year:</span> $32,502.00</p>
           <p><span style={{ color: "#ff9966", fontSize:"14",fontWeight: "500" }}>Prev Year:</span> $46,018.00</p>
         </div>

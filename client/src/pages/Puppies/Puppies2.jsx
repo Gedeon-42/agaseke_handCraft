@@ -10,8 +10,8 @@ function Puppies2() {
 
   const gender = [
     "All",
-    "male",
-    "female"
+    "music",
+    "art"
   ];
   const [selectedGender, setSelectedGender] = useState("All"); // Default to "All" to display all products
 

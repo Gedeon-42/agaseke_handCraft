@@ -71,7 +71,7 @@ function AddPuppie() {
   return (
     <div className="add-puppie-wrapper">
       <div className="add-header">
-        <h1>Add Puppie</h1>
+        <h1>Add Product</h1>
       </div>
       <ToastContainer/>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -114,6 +114,9 @@ function AddPuppie() {
                 <input type="text" value={discount} onChange={(e)=>setDiscount(e.target.value)} placeholder="discount" />
               </div>
             </div>
+            <button className="btn-add-puppie2" type="submit">
+         {loading ? (<>Loading...</>):(<>Add Product</>)} 
+        </button>
           </div>
 
           <div className="add-puppie-content2">
@@ -178,9 +181,7 @@ function AddPuppie() {
           </div>
         </div>
 
-        <button className="btn-add-puppie2" type="submit">
-         {loading ? (<>Loading...</>):(<>Add Product</>)} 
-        </button>
+       
       </form>
     </div>
   );

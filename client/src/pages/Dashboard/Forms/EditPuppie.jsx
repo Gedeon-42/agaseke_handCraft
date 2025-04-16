@@ -119,7 +119,7 @@ window.location.href="/admin/product"
     <div className="add-puppie-wrapper">
        {/* <ToastContainer />  */}
     <div className="add-header">
-      <h1>Update Puppie</h1>
+      <h1>Update Product</h1>
     </div>
   
     <form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -129,7 +129,7 @@ window.location.href="/admin/product"
           <h1>General Information</h1>
           <div className="price-description">
          
-          <label>Name of Puppie</label>
+          <label>Name of Product</label>
           <input
             type="text"
             value={name}
@@ -246,8 +246,8 @@ window.location.href="/admin/product"
               <label htmlFor="category"> category</label>
               <select value={category} onChange={(e)=>setCategory(e.target.value)}>
                 <option value="">Select</option>
-                <option value="america">american</option>
-                <option value="German Shephered">German shephered</option>
+                <option value="america">Music</option>
+                <option value="German Shephered">Clothes</option>
               </select>
             </div>
         </div>

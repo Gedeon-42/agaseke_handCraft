@@ -49,8 +49,8 @@ function DashPuppies() {
     
       <div className="recent-orders-container">
         <div className="dash-puppie-header">
-        <h1>All Puppies</h1>
-        <Link className='btn-add-puppie' to="/admin/add-product">Add Puppie</Link>
+        <h1>All Products</h1>
+        <Link className='btn-add-puppie' to="/admin/add-product">Add Product</Link>
         </div>
       <ToastContainer/>
       <table className="orders-table">
@@ -58,12 +58,10 @@ function DashPuppies() {
           <tr>
             <th>No</th>
             <th>image</th>
-            <th>Puppy</th>
+            <th>Product</th>
             <th>Category</th>
             <th>Price</th>
             <th>Discount</th>
-            <th>Gender</th>
-            <th>color</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -79,10 +77,7 @@ function DashPuppies() {
                 <td>{item.category}</td>
                 <td>{item.price}</td>
                 <td>{item.discount}</td>
-                <td>{item.gender}</td>
-                <td>{item.color}</td>
-
-                <td className="actions">
+                <td className="actions flex gap-0.5">
                   <FaEye className="icon view-icon" />
                   <Link to={`/admin/edit-puppie/${item.id}`}><FaEdit className="icon edit-icon" /></Link>
                   <FaTrashAlt onClick={()=>handleDelete(item.id)} className="icon delete-icon" />
@@ -90,7 +85,7 @@ function DashPuppies() {
               </tr>
             ))
           ) : (
-            <p>No Puppies available at the moment.</p>
+            <p>No Product available at the moment.</p>
           )}
         </tbody>
       </table>

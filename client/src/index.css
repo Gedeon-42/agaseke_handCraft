@@ -1,14 +1,15 @@
 
+@import "tailwindcss";
 * {
     /* margin: 0;
     padding: 0; */
     box-sizing: border-box;
     font-family: 'DM Sans', sans-serif;
   }
-  @import "tailwindcss";
+  
  
   :root {
-    line-height: 1.5;
+    
     font-weight: 400;
     color-scheme: light dark;
   
@@ -147,7 +148,7 @@
   /* login wrapper */
   .login-wrapper{
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     justify-content: center;
     background-color: var(--bs-light);
     height: 100vh;
@@ -210,11 +211,12 @@
     box-shadow: var(--box-shadow);
   }
   .signup-form input{
-    padding: 10px;
+    padding: 7px;
     border-radius: 7px;
-    border: 1px solid lightgrey;
+    border: 1px solid gray;
     outline: none;
     width: 100%;
+    font-size: 14px;
   }
   .signup-form label{
     color: var(--bs-gray-dark);
@@ -224,6 +226,13 @@
     display: flex;
     gap: 20px;
   }
+  .first-name{
+    width: 100%;
+  }
+  .first-name input{
+    width: 100%;
+    font-size: 14px;
+  }
   .login-h1{
     text-align: center;
     font-size: 24px;
@@ -232,13 +241,14 @@
     text-transform: capitalize;
   }
   .signup-form button{
-  padding: 10px;
+  padding: 7px;
   background-color: var(--bs-gray-dark);
   outline: 0;
   border: 0;
   text-align: center;
   color: white;
   border-radius: 7px;
+  font-size: 14px;
   }
   
   
@@ -444,7 +454,8 @@
   .sidebar {
     width: 250px;
     padding: 20px 30px;
-    background-color: #f9f9f9;
+    background-color:var(--bs-light);
+    
   }
   
   .sidebar h3 {

@@ -3,7 +3,7 @@ import React from 'react';
 const CategorySidebar = ({ categories, selectedCategory, onSelectCategory }) => {
   return (
     <div className="sidebar">
-      <h3>All Breeds</h3>
+      <h3>All Categories</h3>
       <ul>
         {categories.map((category, index) => (
           <li

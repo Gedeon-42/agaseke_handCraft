@@ -59,7 +59,7 @@ useEffect(() => {
           <ProductCard key={puppy.id} product={puppy} /> // Pass each puppy to ProductCard
         ))
       ) : (
-        <p className="product-center">No puppies found for the selected category.</p> // Message when no products are available
+        <p className="product-center">No product found for the selected category.</p> // Message when no products are available
       )}
     </div>
   );

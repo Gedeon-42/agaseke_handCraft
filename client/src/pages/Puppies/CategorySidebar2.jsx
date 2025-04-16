@@ -3,7 +3,7 @@ import React from 'react';
 const CategorySidebar2 = ({ gender, selectedGender, onSelectGender }) => {
   return (
     <div className="sidebar">
-      <h3>Filter By Gender</h3>
+      <h3>Filter By Categories</h3>
       <ul>
         {gender.map((item, index) => (
           <li

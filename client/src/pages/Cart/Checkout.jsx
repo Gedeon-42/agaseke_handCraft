@@ -97,7 +97,7 @@ const CheckoutPage = () => {
         ))}
 
 <h4>Total: Rwf {calculateTotal().toLocaleString()}</h4>
-<button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded mt-4 w-full">
+<button type="submit" className="bg-black text-white py-2 px-4 rounded mt-4 w-full">
           Place Order
         </button>
       </div>

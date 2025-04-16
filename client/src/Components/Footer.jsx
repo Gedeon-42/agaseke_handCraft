@@ -8,7 +8,7 @@ function Footer() {
         <div className="footer-container">
         <div className="footer-content1">
             <h1>Contact info</h1>
-            <p><span>Email:puppsy@gmail.com</span></p>
+            <p><span>Email:gakondo@gmail.com</span></p>
             <p>Phone number:+250-788-306-758</p>
         </div>
         <div className="footer-content2">
@@ -30,7 +30,7 @@ function Footer() {
         </div>
         <div className="footer">
            <div className="footer-1">
-            <p>&copy; Copyright 2024 <Link to=""> Puppsypot</Link> . All rights Reserved!</p>
+            <p>&copy; Copyright 2024 <Link to=""> Gakondo</Link> . All rights Reserved!</p>
             </div>
             <div className="payment-method">
                 <img src="/images/mastercard.png" alt="" />

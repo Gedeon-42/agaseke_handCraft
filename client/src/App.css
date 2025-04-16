@@ -80,9 +80,9 @@
   height: 100vh;
   width: 200px;
   padding: 40px 30px;
-
   border-right: 1px solid rgb(240, 234, 234);
 }
+
 .logo-sidebar {
   height: 70px;
   width: auto;
@@ -109,7 +109,7 @@
 }
 .outle-wrapper {
   margin-left: 200px;
-  padding: 20px;
+  padding: 10px;
   background-color: var(--bs-light);
   height: 90vh;
 }
@@ -222,13 +222,14 @@
   border-collapse: collapse;
   margin-top: 10px;
   background-color: var(--bs-white);
+  box-shadow: var(--box-shadow);
 }
 
 .orders-table th,
 .orders-table td {
   border-left: 0;
   border-bottom: 1px solid rgb(240, 234, 234);
-  padding: 5px 8px;
+  padding:  8px;
 }
 
 .orders-table th {
@@ -273,7 +274,10 @@
   color: var(--bs-gray);
   font-size: 14px;
 }
-
+.actions{
+  border-bottom: none !important;
+  margin-top: 20px;
+}
 .actions .icon {
   margin: 0 5px;
   cursor: pointer;
@@ -391,7 +395,9 @@
 .dash-puppie-header {
   display: flex;
   justify-content: space-between;
-  padding: 3px 10px;
+  padding: 10px;
+  background-color: var(--bs-white);
+  box-shadow: var(--box-shadow);
 }
 .btn-add-puppie {
   padding: 5px 10px;
@@ -418,7 +424,8 @@
 .add-puppie-content1 {
   flex-basis: 60%;
   background-color: var(--bs-white);
-  padding: 20px;
+  padding: 20px;  
+  box-shadow: var(--box-shadow);
 }
 
 .add-puppie-content1 h1 {
@@ -438,7 +445,7 @@
 .price-description input {
   outline: 0;
   border: 1px solid lightgrey;
-  padding: 10px;
+  padding: 7px;
   font-size: 14px;
   border-radius: 4px;
 }
@@ -477,7 +484,7 @@
 }
 .price1 input {
   width: 100%;
-  padding: 10px;
+  padding: 7px;
   border: 1px solid lightgrey;
   outline: 0;
   border-radius: 4px;
@@ -493,7 +500,7 @@
 }
 .discount1 input {
   width: 100%;
-  padding: 10px;
+  padding: 7px;
   border: 1px solid lightgrey;
   outline: 0;
   border-radius: 4px;
@@ -502,6 +509,7 @@
   flex-basis: 40%;
   padding: 20px;
   background-color: var(--bs-white);
+  box-shadow: var(--box-shadow);
 }
 .main-image-wrapper {
   display: flex;
@@ -509,7 +517,7 @@
   gap: 5px;
 }
 .main-image-wrapper input {
-  padding: 10px;
+  padding: 7px;
   border: 1px solid lightgrey;
   outline: 0;
   border-radius: 5px;
@@ -527,9 +535,10 @@
 .puppie-category {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 .puppie-category select {
-  padding: 10px;
+  padding: 7px;
   border: 1px solid lightgrey;
   outline: 0;
   border-radius: 5px;
@@ -538,11 +547,11 @@
 .btn-add-puppie2 {
   background-color: var(--bs-gray-dark);
   outline: 0;
-  padding: 10px;
+  padding: 7px;
   border-radius: 4px;
   border: 0;
   color: var(--bs-white);
-  margin-left: 20px;
+  margin-top: 20px;
 }
 .add-category-wrapper {
   background-color: rgba(169, 165, 165, 0.5);

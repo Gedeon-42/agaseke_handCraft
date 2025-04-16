@@ -26,7 +26,6 @@ function Signup() {
 
     SignupMutation.mutate(payload);
   };
-
   return (
     <div className="login-wrapper">
       <form
@@ -38,7 +37,6 @@ function Signup() {
         <h1 className="login-h1">Register</h1>
         <div className="first-name-wrapper">
           <div className="first-name">
-            <label htmlFor="first_name">First Name</label>
             <input
               type="text"
               onChange={(e) => setFirstName(e.target.value)}
@@ -46,7 +44,6 @@ function Signup() {
             />
           </div>
           <div className="first-name">
-            <label htmlFor="first_name">Last Name</label>
             <input
               type="text"
               onChange={(e) => setLastName(e.target.value)}
@@ -54,21 +51,18 @@ function Signup() {
             />
           </div>
         </div>
-
-        <label htmlFor="email">Email Address</label>
         <input
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email Adress"
         />
         
-        <label htmlFor="Phone number">Phone Number</label>
         <input
           type="text"
           onChange={(e) => setPhone(e.target.value)}
           placeholder="Phone Number"
         />
-        <label htmlFor="">Password</label>
+
         <input
           type="password"
           onChange={(e) => setPassword(e.target.value)}
@@ -82,7 +76,7 @@ function Signup() {
         />
         <button className="btn-add-login"> {loading ?(<>Loding....</>):(<>Register</>)}</button>
         <div className="message-wrapper">
-          <p>Already you Have an Account?</p>
+          <p>Already Have an Account?</p>
           <Link to="/login">Login</Link>
         </div>
       </form>

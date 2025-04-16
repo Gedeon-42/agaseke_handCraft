@@ -1,7 +1,7 @@
 import React from "react";
-import AreaCharts from "./components/AreaChart";
-import BarCharts from "./components/BarChart";
-import { FaCaretUp } from "react-icons/fa";
+
+import { BsThreeDots } from "react-icons/bs";
+import { FaCaretUp, FaDollarSign } from "react-icons/fa";
 import SalesChart from "./components/SalesChart";
 import Orders from "./Orders";
 
@@ -14,68 +14,53 @@ function Dashboard() {
     { name: "Phoenix", value: 22, color: "#ff5733" },
   ];
 
-  const dataRadialBarChart = [{ name: "Product Share", value: 34.6 }];
  
+
   return (
-    <div className="dashboard-warpper">
-      <div className="orders-container">
-        <BarCharts/>
-        <AreaCharts/>
-      </div>
-      <div className="dash-orders-container">
-        <div className="dash-order-content">
-          <h6 className="h6-order">Orders</h6>
-          <h1 className="h1-order">340</h1>
-          <div className="h1-orders-container">
-           <h6>135</h6>
-           <p><FaCaretUp /> 28%</p>
-          </div>
-        </div>
-        <div className="dash-order-content">
-          <h6 className="h6-order">Puppies Sold</h6>
-          <h1 className="h1-order">40</h1>
-          <div className="h1-orders-container">
-           <h6>5</h6>
-           <p><FaCaretUp /> 8%</p>
-          </div>
-        </div>
-
-        <div className="dash-order-content">
-          <h6 className="h6-order">Puppies in stock</h6>
-          <h1 className="h1-order">40</h1>
-          <div className="h1-orders-container">
-           <h6>135</h6>
-           <p><FaCaretUp /> 28%</p>
-          </div>
-        </div>
-        <div className="dash-order-content">
-          <h6 className="h6-order">Puppies in stock</h6>
-          <h1 className="h1-order">40</h1>
-          <div className="h1-orders-container">
-           <h6>135</h6>
-           <p><FaCaretUp /> 28%</p>
-          </div>
-        </div>
-
-        <div className="dash-order-content">
-          <h6 className="h6-order">Puppies in stock</h6>
-          <h1 className="h1-order">40</h1>
-          <div className="h1-orders-container">
-           <h6>135</h6>
-           <p><FaCaretUp /> 28%</p>
-          </div>
-        </div>
-
-        <div className="dash-order-content">
-          <h6 className="h6-order">Puppies in stock</h6>
-          <h1 className="h1-order">40</h1>
-          <div className="h1-orders-container">
-           <h6>135</h6>
-           <p><FaCaretUp /> 28%</p>
-          </div>
-        </div>
-
-      </div>
+    <div className="p-4">
+     <div className="grid grid-cols-4 gap-4">
+  <div className="border border-gray-300 rounded-md p-2 bg-white h-36 ">
+    <div className="flex justify-between items-center">
+      <FaDollarSign className="text-[30px] text-gray-500" />
+      <BsThreeDots />
+    </div>
+    <div className="flex flex-col gap-[5px]">
+      <h1 className="text-gray-300 text-[17px]">TOTAL INCOME</h1>
+      <h1 className="font-bold">200000 Rwf</h1>
+    </div>
+  </div>
+  <div className="border border-gray-300 rounded-md bg-gray-300 p-4 h-36 ">
+    <div className="flex justify-between items-center">
+      <FaDollarSign className="text-[20px] text-gray-500" />
+      <BsThreeDots />
+    </div>
+    <div className="flex flex-col gap-[5px]">
+      <h1 className=" text-[17px]">TOTAL EXPENSES</h1>
+      <h1 className="font-bold">200000 Rwf</h1>
+    </div>
+  </div>
+  <div className="border border-gray-300 rounded-md  p-4 h-36 ">
+    <div className="flex justify-between items-center">
+      <FaDollarSign className="text-[20px] text-gray-500" />
+      <BsThreeDots />
+    </div>
+    <div className="flex flex-col gap-[5px]">
+      <h1 className="text-[#000] text-[15px]">ORDERS</h1>
+      <h1 className="font-bold ">300</h1>
+    </div>
+  </div>
+  <div className="border-gray-300 border rounded-md bg-green-700 p-4 h-36 ">
+    <div className="flex justify-between items-center">
+      <FaDollarSign className="text-[20px] text-white" />
+      <BsThreeDots className="text-white" />
+    </div>
+    <div className="flex flex-col gap-[10px]">
+      <h1 className="text-white text-[17px]">Customers</h1>
+      <h1 className="font-bold text-white">2000</h1>
+    </div>
+  </div>
+</div>
+      
       <SalesChart/>
       <Orders/>
     </div>

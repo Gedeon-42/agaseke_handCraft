@@ -2,22 +2,23 @@ import React from 'react'
 import { AiOutlineDashboard } from 'react-icons/ai'
 import { BiCategory } from 'react-icons/bi'
 import { CiSettings } from 'react-icons/ci'
-import { FaUserAltSlash } from 'react-icons/fa'
-import { FaDog, FaOrcid, FaSquarePollVertical, FaUsers } from 'react-icons/fa6'
+import { MdOutlineDatasetLinked } from "react-icons/md";
+import { FaDog, FaOrcid, FaSquarePollVertical, FaUser, FaUsers } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 
 function DashSidebar() {
+
   return (
     <div className='sidebar-wrapper'>
-        <Link to="/"><img className='logo-sidebar' src="/images/logo2.webp" alt="" /></Link>
+        <Link to="/"><img className='logo-sidebar' src="/images/image1.jpg" alt="" /></Link>
         <div className="sidebar-content">
         <div className="sidebar-desc">
         <AiOutlineDashboard />
         <Link to='/admin'>Dashboard</Link>
         </div>
         <div className="sidebar-desc">
-        <FaDog/>
-       <Link to="/admin/products"> Puppies </Link>
+        <MdOutlineDatasetLinked />
+       <Link to="/admin/products"> Products </Link>
         </div>
         <div className="sidebar-desc">
         <BiCategory />
@@ -28,7 +29,7 @@ function DashSidebar() {
         <Link to="/admin/orders">Orders</Link>
         </div>
         <div className="sidebar-desc">
-        <FaUserAltSlash/>
+        <FaUser/>
         <Link to="/admin/customers"> Customers</Link>
         </div>
         <div className="sidebar-desc">
