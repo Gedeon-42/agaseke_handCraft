@@ -17,9 +17,11 @@ import EditCategory from "./pages/Dashboard/Forms/EditCategory";
 import Reports from "./pages/Dashboard/Reports";
 import Settings from "./pages/Dashboard/Settings";
 import Login from "./pages/Auth/Login";
+
 import Signup from "./pages/Auth/Signup";
 import NotFound from "./pages/NotFound";
 import Checkout from "./pages/Cart/Checkout";
+import ProfilePage from "./pages/Dashboard/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,10 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <PuppyDetail />,
       },
+      {
+        path:"/profile",
+        element:<ProfilePage/>
+      }
     ],
   },
   {

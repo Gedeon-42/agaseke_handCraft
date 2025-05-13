@@ -10,6 +10,7 @@ function DashSidebar() {
 
   return (
     <div className='sidebar-wrapper'>
+      
         <Link to="/"><img className='logo-sidebar' src="/images/image1.jpg" alt="" /></Link>
         <div className="sidebar-content">
         <div className="sidebar-desc">

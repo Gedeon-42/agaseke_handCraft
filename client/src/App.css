@@ -105,7 +105,7 @@
 .sidebar-content {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 .outle-wrapper {
   margin-left: 200px;
@@ -184,8 +184,8 @@
 }
 .sales-wrapper {
   background-color: var(--bs-white);
-  height: 80vh;
-  margin-top: 20px;
+  height: 85vh;
+width: 70%;
   border-radius: 7px;
   padding: 20px;
   box-shadow: var(--box-shadow);
@@ -392,6 +392,7 @@
 .admin-content2-desc h6 {
   color: var(--bs-gray);
 }
+
 .dash-puppie-header {
   display: flex;
   justify-content: space-between;

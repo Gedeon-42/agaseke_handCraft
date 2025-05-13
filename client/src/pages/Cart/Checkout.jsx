@@ -48,21 +48,34 @@ const CheckoutPage = () => {
             </div>
           </div>
 
+    <div>
+            <label className="block font-semibold mb-1">
+              Phone number <span className="text-red-500">*</span>
+            </label>
+            <input type="text"  placeholder="Enter Phone Number" className="w-full p-[7px] bg-gray-100 rounded" />
+          </div>
           <div>
             <label className="block font-semibold mb-1">
-              Company name (optional)
+              Country<span className="text-red-500">*</span>
             </label>
-            <input type="text" className="w-full p-[7px] bg-gray-100 rounded" />
+            <input type="text" placeholder="Country" className="w-full p-[7px] bg-gray-100 rounded" />
           </div>
 
-          <div>
+              <div>
             <label className="block font-semibold mb-1">
-              Country / Region <span className="text-red-500">*</span>
+              District <span className="text-red-500">*</span>
             </label>
-            <select className="w-full p-[7px] bg-gray-100 rounded">
-              <option>Rwanda</option>
-            </select>
+            <input type="text" placeholder="District" className="w-full p-[7px] bg-gray-100 rounded" />
           </div>
+
+              <div>
+            <label className="block font-semibold mb-1">
+              Sector <span className="text-red-500">*</span>
+            </label>
+            <input type="text" placeholder="Sector"  className="w-full p-[7px] border border-gray-200 bg-gray-100 rounded" />
+          </div>
+
+        
         </form>
       </div>
 

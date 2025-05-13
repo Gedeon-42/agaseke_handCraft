@@ -3,6 +3,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import { FaAngleRight, FaLock, FaUser, FaUserAlt } from 'react-icons/fa'
 
 function Settings() {
+    
   return (
     <div className="admin-settings-wrapper">
     <div className="admin-content1">

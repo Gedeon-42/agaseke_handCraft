@@ -38,6 +38,28 @@ function Orders() {
       Date: "12/8/2024",
       status: "completed",
     },
+      {
+      id: 5,
+      name:"iradukunda eric",
+      email:"eric@gmail.com",
+      district:"Gasabo",
+      sector:"kacyiru",
+      phone:"0781234567",
+      price: 345,
+      Date: "12/8/2024",
+      status: "completed",
+    },
+      {
+      id: 9,
+      name:"Gratia Ishimwe",
+      email:"eric@gmail.com",
+      district:"Gasabo",
+      sector:"kacyiru",
+      phone:"0781234567",
+      price: 345,
+      Date: "12/8/2024",
+      status: "completed",
+    },
   ];
   return (
     <div className="recent-orders-container">
