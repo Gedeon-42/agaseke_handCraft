@@ -72,6 +72,7 @@ class CartController extends Controller
             'user_id' => $cart->user_id,
             'items' => $cart->items->map(function ($item) {
                 if ($item->puppy) {
+                    
                     return [
                         'id' => $item->id,
                         'product_id' => $item->puppy->id,

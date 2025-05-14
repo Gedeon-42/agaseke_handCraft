@@ -36,7 +36,6 @@ Route::delete('/cart/clear', [CartController::class, 'clearCart']);
 
 Route::delete('/cart/remove/{itemId}', [CartController::class, 'removeCartItem']);
 
-
 Route::post('/puppies', [ProductController::class, 'store']);
 Route::get('/all-puppies', [ProductController::class, 'arrivals']);
 Route::get('/puppies', [ProductController::class, 'index']);
@@ -45,7 +44,8 @@ Route::put('/puppies/{id}', [ProductController::class, 'update']);
 Route::delete('/puppie/{id}', [ProductController::class, 'destroy']);
 
 Route::post('/orders', [OrderController::class, 'store']); // Place a new order
-Route::get('/orders', [OrderController::class, 'index']); // Get all orders for the logged-in user
+Route::get('/orders', [OrderController::class, 'index']); // 
+
 
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::post('/categories', [CategoryController::class, 'store']);

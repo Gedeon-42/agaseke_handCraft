@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Assuming each order is linked to a user
-            $table->foreignId('product_id')->constrained()->onDelete('cascade'); // Assuming each order is for one product
-            $table->string('location')->nullable(); // Location can be a simple string or a more structured data
-            $table->string('address')->nullable(); // Full address or additional details
+            $table->string('email')->nullable(); // Location can be a simple string or a more structured data
+            $table->string('district')->nullable(); // Full address or additional details
+            $table->string('sector')->nullable(); 
+            $table->string('cell')->nullable();
+            $table->string('street')->nullable(); 
+            $table->string('phone')->nullable(); // Full address or additional details
             $table->string('total_price'); // Total price of the order
-            $table->string('quantity')->default(1); // Quantity of the product ordered
-            $table->string('status')->default('pending'); // e.g., pending, shipp
+            $table->enum('status',['pending','completed','rejected'])->default('pending'); // e.g., pending, shipp
             $table->timestamps();
         });
     }

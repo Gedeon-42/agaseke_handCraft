@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Product;
+use App\Models\OrderItem;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -12,9 +13,12 @@ class Order extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'product_id',
-        'location',
-        'address',
+        'email',
+        'district',
+        'sector',
+        'cell',
+        'street',
+        'phone',
         'total_price',
         'quantity',
         'status',
@@ -28,5 +32,10 @@ class Order extends Model
     public function puppie()
     {
         return $this->belongsTo(Product::class);
+    }
+
+     public function items()
+    {
+        return $this->hasMany(OrderItem::class);
     }
 }
