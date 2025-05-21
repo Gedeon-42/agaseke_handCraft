@@ -4,33 +4,33 @@ import { Link } from "react-router-dom";
 const Slider = () => {
   
   const slides = [
+    // {
+    //   title: "Discover Traditional Tolls",
+    //   subtitle: "Ingoma Gakondo",
+    //   year: "2024/2025",
+    //   description:
+    //     "Magna sed suscipit sed adipiscing varius molestie dui eget nulla commodo wisi, rutrum sed libero etiam quis ac, sagittis massa eget tristique.",
+    //   buttonLabel: "Get It Now",
+    //   image: "/images/n19.jpg", // Replace with actual image path
+    // },
     {
-      title: "Discover Traditional Tolls",
-      subtitle: "Ingoma Gakondo",
-      year: "2024/2025",
-      description:
-        "Magna sed suscipit sed adipiscing varius molestie dui eget nulla commodo wisi, rutrum sed libero etiam quis ac, sagittis massa eget tristique.",
-      buttonLabel: "Get It Now",
-      image: "/images/n19.jpg", // Replace with actual image path
-    },
-    {
-      title: "Uduseke",
+      title: "Buy Traditional Tools",
       subtitle: "udukeseke twa kinyarwanda",
       year: "2024/2025",
       description:
-        "Magna sed suscipit sed adipiscing varius molestie dui eget nulla commodo wisi, rutrum sed libero etiam quis ac, sagittis massa eget tristique.",
+        "Buy traditional tools for your home and garden. Explore our collection of unique and authentic items.",
       buttonLabel: "Get It Now",
       image: "/images/n22.jpeg", // Replace with actual image path
     },
-    {
-      title: "Intebe za kinyarwanda",
-      subtitle: "Coffee Machine",
-      year: "2024/2025",
-      description:
-        "Magna sed suscipit sed adipiscing varius molestie dui eget nulla commodo wisi, rutrum sed libero etiam quis ac, sagittis massa eget tristique.",
-      buttonLabel: "Get It Now",
-      image: "/images/kin4.jpg", // Replace with actual image path
-    },
+    // {
+    //   title: "Intebe za kinyarwanda",
+    //   subtitle: "Coffee Machine",
+    //   year: "2024/2025",
+    //   description:
+    //     "Magna sed suscipit sed adipiscing varius molestie dui eget nulla commodo wisi, rutrum sed libero etiam quis ac, sagittis massa eget tristique.",
+    //   buttonLabel: "Get It Now",
+    //   image: "/images/kin4.jpg", // Replace with actual image path
+    // },
   ];
 
   // Add the first slide to the end for a seamless transition

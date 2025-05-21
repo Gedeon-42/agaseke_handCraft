@@ -2,7 +2,6 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
-
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [cartItemCount, setCartItemCount] = useState(0);
@@ -17,7 +16,6 @@ export const CartProvider = ({ children }) => {
       console.error("Error fetching cart:", error);
     }
   };
-
   // Add an item to the cart
   const addToCart = async (puppieId, quantity, price) => {
     try {
@@ -27,7 +25,6 @@ export const CartProvider = ({ children }) => {
       console.error("Error adding to cart:", error);
     }
   };
-
   useEffect(() => {
     fetchCart();
   }, []);

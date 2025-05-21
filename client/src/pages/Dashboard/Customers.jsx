@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaEye, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import AddCustomer from "./Forms/AddCustomer";
+import axiosClient from "../../axiosClient";
+import { usestateContext } from "../../Context/ContextProvider";
 
 function Customers() {
 
@@ -11,35 +13,28 @@ function Customers() {
     setModel(!model)
   }
 
-  const orders = [
-    {
-      id: 1,
-      image: "/images/dog1.webp",
-      name: "Umwizerwa Gedeon",
-      email: "umwizerwagedeon49@gmail.com",
-      phone: "0780749799",
-      status: "available",
-    },
+const [orders,setOrders] = useState([]);
+const {token} = usestateContext()
 
-    {
-      id: 2,
-      image: "/images/dog1.webp",
-      name: "Peter",
-      email: "Peter@gmail.com",
-      phone: "0780749799",
-      status: "available",
-    },
+useEffect(()=>{
+  const fetchOrders = async () => {
+    try {
+      const response = await axiosClient.get("/orders",{
+  
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await response.json();
+      setOrders(data);
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+    }
+  };
 
-    {
-      id: 3,
-      image: "/images/dog1.webp",
-      name: "Kalisa Elissa",
-      email: "Kalisa@gmail.com",
-      phone: "0780749799",
-      status: "available",
-    },
+  fetchOrders();
+})
 
-  ];
   return (
     <div className="recent-orders-container">
         <div className="categories-header">
@@ -87,5 +82,4 @@ function Customers() {
     </div>
   );
 }
-
 export default Customers;

@@ -276,7 +276,7 @@ const ShippingAddresses = ({ addresses }) => {
         </button>
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+          className="px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-blue-700 transition-colors"
         >
           {isEditing ? 'Update Address' : 'Add Address'}
         </button>
@@ -307,7 +307,7 @@ const ShippingAddresses = ({ addresses }) => {
           <p className="text-gray-500 mb-4">You don't have any saved addresses.</p>
           <button 
             onClick={() => setShowAddForm(true)}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+            className="px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-blue-700 transition-colors"
           >
             Add Your First Address
           </button>
@@ -335,7 +335,7 @@ const ShippingAddresses = ({ addresses }) => {
               <div className="flex space-x-2">
                 <button
                   onClick={() => handleEditAddress(address)}
-                  className="text-sm text-blue-600 hover:underline"
+                  className="text-sm text-orange-600 hover:underline"
                 >
                   Edit
                 </button>

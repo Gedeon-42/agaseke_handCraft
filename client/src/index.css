@@ -240,17 +240,7 @@
     text-align: center;
     text-transform: capitalize;
   }
-  .signup-form button{
-  padding: 7px;
-  background-color: var(--bs-gray-dark);
-  outline: 0;
-  border: 0;
-  text-align: center;
-  color: white;
-  border-radius: 7px;
-  font-size: 14px;
-  }
-  
+
   
   /* footer wrapper */
   .footer-container {

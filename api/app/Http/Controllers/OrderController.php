@@ -13,23 +13,20 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            // 'user_id' => 'required|exists:products,id',
             'email' => 'required|email',
             'street' => 'required|string',
             'district' => 'required|string',
             'sector' => 'required|string',
             'cell' => 'required|string',
             'phone' => 'required|string',
-             'items'    => 'required|array',
-         
-         
+             'items'    => 'required|array',  
         ]);
     $total = collect($request->items)->sum(function ($item) {
         return $item['price'] * $item['quantity'];
     });
-
+      $user = auth()->user();
         $order = Order::create([
-            'user_id' => auth()->id(),
+            'user_id' => $user->id,
             'email' => $request->email,
             'street' => $request->street,
             'district' => $request->district,
@@ -46,8 +43,6 @@ class OrderController extends Controller
             'message' => "Product with ID {$item['product_id']} not found."
         ], 400);
     }
-
-
             $order->items()->create([
                 'product_id' => $item['product_id'],
                 'name'     => $item['name'],
@@ -58,16 +53,18 @@ class OrderController extends Controller
         }
 
         Log::info($request->items);
-
-
         return response()->json(['message' => 'Order placed successfully', 'order' => $order], 201);
     }
 
-    
+
     public function index()
     {
-        $orders = Order::where('user_id', auth()->id())->with('product')->get();
-
-        return response()->json(['orders' => $orders]);
+        $orders = Order::with(['items','user'])->get();
+        return response()->json($orders);
+    }
+     public function myOrders()
+    {
+        $orders = Order::where('user_id', auth()->id())->with(['items','user'])->get();
+        return response()->json($orders);
     }
 }

@@ -19,6 +19,7 @@ class Order extends Model
         'cell',
         'street',
         'phone',
+        
         'total_price',
         'quantity',
         'status',

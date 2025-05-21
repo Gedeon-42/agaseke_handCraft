@@ -45,7 +45,7 @@ const handlesubmit = (e) => {
   return (
     <div className='login-wrapper'>
     <div className="bg-white p-8 flex flex-col rounded shadow-md w-96">
-    <div className="flex flex-col items-center justify-center bg-green-600 p2 w-10 h-10 rounded m-auto text-white font-bold text-2xl mb-4"> 
+    <div className="flex flex-col items-center justify-center bg-orange-600 p2 w-10 h-10 rounded m-auto text-white font-bold text-2xl mb-4"> 
     <FiLogIn className="text-white text-center text-[20px]"/>
 </div>
 <div className="flex flex-col gap-[10px] items-center justify-center mb-[20px]">
@@ -53,7 +53,6 @@ const handlesubmit = (e) => {
     <p className="text-[gray] text-[14px] text-center">
         secure your account with a strong password and keep it safe.
     </p>
-
 </div>
 <form onSubmit={handlesubmit} className="flex flex-col gap-[20px]"  action="" method="post">
 <div className="relative flex items-center">
@@ -66,7 +65,7 @@ const handlesubmit = (e) => {
     </div>
 
   
-      <button className='btn-add-login'>
+      <button className='bg-orange-600 text-white p-[10px] rounded-[5px] flex items-center justify-center gap-[5px]'>
       {loading ? (
             <ClipLoader size={20} color={"#ffffff"} />
           ) : (

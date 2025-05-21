@@ -20,9 +20,6 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::middleware('auth:sanctum')->group(function (){
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-});
 
 Route::post('/cart/add', [CartController::class, 'addToCart']);
 Route::post('/cart/sync', [CartController::class, 'syncCart']);
@@ -30,6 +27,9 @@ Route::get('/cart', [CartController::class, 'viewCart']);
 Route::put('/cart/update/{itemId}', [CartController::class, 'updateCartItem']);
 // Route::delete('/cart/remove/{itemId}', [CartController::class, 'removeCartItem']);
 Route::delete('/cart/clear', [CartController::class, 'clearCart']);
+
+Route::post('/orders', [OrderController::class, 'store']); // Place a new order
+Route::get('/orders', [OrderController::class, 'index']); // 
    
 });
 
@@ -43,8 +43,7 @@ Route::get('/puppie/{id}', [ProductController::class, 'show']);
 Route::put('/puppies/{id}', [ProductController::class, 'update']);
 Route::delete('/puppie/{id}', [ProductController::class, 'destroy']);
 
-Route::post('/orders', [OrderController::class, 'store']); // Place a new order
-Route::get('/orders', [OrderController::class, 'index']); // 
+
 
 
 Route::get('/categories', [CategoryController::class, 'index']);

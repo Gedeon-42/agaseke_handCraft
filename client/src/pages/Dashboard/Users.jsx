@@ -37,36 +37,40 @@ function Users() {
 
   ];
   return (
-    <div className="recent-orders-container">
-      <h1>Users</h1>
-      <table className="users-table">
-        <thead>
+    <div className=" overflow-x-auto relative ">
+       <div className="mx-[20px] mt-[30px] mb-[20px] bg-white shadow-md sm:rounded-lg p-[10px]">
+        <h1 className="text-[20px] font-bold text-gray-700">Users</h1>
+        
+      </div>
+     
+      <table className="w-full bg-white m-4 border border-gray-200 mr-[20px]  rounded-lg">
+        <thead className="bg-gray-100">
           <tr>
-            <th>No</th>
+            <th className="px-4 py-2  text-gray-700 text-left">No</th>
             {/* <th>image</th> */}
-            <th>Names</th>
-            <th>email</th>
-            <th>Phone</th>
-            <th>District</th>
-            <th>Province</th>
-            <th>Actions</th>
+            <th className="px-4 py-2  text-gray-700 text-left">Names</th>
+            <th className="px-4 py-2  text-gray-700 text-left"> email</th>
+            <th className="px-4 py-2  text-gray-700 text-left">Phone</th>
+            <th className="px-4 py-2  text-gray-700 text-left">District</th>
+            <th className="px-4 py-2  text-gray-700 text-left">Province</th>
+            <th className="px-4 py-2  text-gray-700 text-left">Actions</th>
           </tr>
         </thead>
         <tbody>
           {users.length > 0 ? (
             users?.map((users, index) => (
-              <tr key={users.id}>
-                <td>{index + 1}</td>
+              <tr className="border-b border-gray-400 hover:bg-gray-50" key={users.id}>
+                <td className="px-4 py-2 text-[14px]">{index + 1}</td>
                 {/* <td>
                   <img className="order-img" src={order.image} alt="" />
                 </td> */}
-                <td>{users.name}</td>
-                <td>{users.email}</td>
-                <td>{users.phone}</td>
-                <td>{users.district}</td>
-                <td>{users.province}</td>
+                <td className="px-4 py-2 text-[14px]">{users.name}</td>
+                <td className="px-4 py-2 text-[14px]"> {users.email}</td>
+                <td className="px-4 py-2 text-[14px]">{users.phone}</td>
+                <td className="px-4 py-2 text-[14px]">{users.district}</td>
+                <td className="px-4 py-2 text-[14px]">{users.province}</td>
 
-                <td className="actions">
+                <td className="px-4 py-2 flex space-x-2">
                   <FaEye className="icon view-icon" />
                   {/* <Link ><FaEdit className="icon edit-icon" /></Link> */}
                   <FaTrashAlt className="icon delete-icon" />
@@ -74,7 +78,12 @@ function Users() {
               </tr>
             ))
           ) : (
-            <p>No Users available at the moment.</p>
+            <tr>
+              <td className="text-center">
+                No Users available at the moment.
+              </td>
+            </tr>
+            
           )}
         </tbody>
       </table>

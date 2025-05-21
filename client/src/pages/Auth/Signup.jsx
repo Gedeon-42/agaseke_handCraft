@@ -74,7 +74,7 @@ function Signup() {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           placeholder="Confirm Password"
         />
-        <button className="btn-add-login"> {loading ?(<>Loding....</>):(<>Register</>)}</button>
+        <button className='bg-orange-600 text-white p-[10px] rounded-[5px] flex items-center justify-center gap-[5px]'> {loading ?(<>Loding....</>):(<>Register</>)}</button>
         <div className="message-wrapper">
           <p>Already Have an Account?</p>
           <Link to="/login">Login</Link>
