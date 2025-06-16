@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { BsThreeDots } from "react-icons/bs";
 import { FaCaretUp, FaDollarSign } from "react-icons/fa";
@@ -6,6 +6,7 @@ import SalesChart from "./components/SalesChart";
 import Orders from "./Orders";
 
 function Dashboard() {
+    const [summary, setSummary] = useState(null);
   const dataPieChart = [
     { name: "Falcon", value: 58, color: "#007bff" },
     { name: "Sparrow", value: 21, color: "#0dcaf0" },

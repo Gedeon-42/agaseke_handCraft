@@ -7,6 +7,7 @@ const PuppyTab = ({ label, isActive, onClick }) => {
             className={`tab-button ${isActive ? 'active' : ''}`}
             onClick={onClick}
         >
+            
             {label}
         </button>
     );

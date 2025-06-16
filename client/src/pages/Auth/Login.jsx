@@ -61,7 +61,7 @@ const handlesubmit = (e) => {
     </div>
     <div className="relative flex items-center">
     <FaUnlockAlt   className="absolute left-[10px]"  />
-    <input type="text" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} className="bg-gray-300 w-full pl-[30px] pt-[7px] pb-[7px] rounded-[5px] border-[1px] border-[lightgrey]" />
+    <input type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} className="bg-gray-300 w-full pl-[30px] pt-[7px] pb-[7px] rounded-[5px] border-[1px] border-[lightgrey]" />
     </div>
 
   
@@ -85,5 +85,6 @@ const handlesubmit = (e) => {
     </div>
   )
 }
+
 
 export default Login

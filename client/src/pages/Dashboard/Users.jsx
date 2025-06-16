@@ -4,36 +4,7 @@ import { Link } from "react-router-dom";
 
 function Users() {
   const users = [
-    {
-      id: 1,
-      image: "/images/dog1.webp",
-      name: "Umwizerwa Gedeon",
-      email: "umwizerwagedeon49@gmail.com",
-      phone: "0780749799",
-      district: "Huye",
-      province:"South"
-
-    },
-
-    {
-      id: 2,
-      image: "/images/dog1.webp",
-      name: "Peter",
-      email: "Peter@gmail.com",
-      phone: "0780749799",
-       district: "Huye",
-      province:"South"
-    },
-
-    {
-      id: 3,
-      image: "/images/dog1.webp",
-      name: "Kalisa Elissa",
-      email: "Kalisa@gmail.com",
-      phone: "0780749799",
-     district: "Huye",
-      province:"South"
-    },
+  
 
   ];
   return (
@@ -44,16 +15,16 @@ function Users() {
       </div>
      
       <table className="w-full bg-white m-4 border border-gray-200 mr-[20px]  rounded-lg">
-        <thead className="bg-gray-100">
+        <thead className="bg-gray-200">
           <tr>
-            <th className="px-4 py-2  text-gray-700 text-left">No</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">No</th>
             {/* <th>image</th> */}
-            <th className="px-4 py-2  text-gray-700 text-left">Names</th>
-            <th className="px-4 py-2  text-gray-700 text-left"> email</th>
-            <th className="px-4 py-2  text-gray-700 text-left">Phone</th>
-            <th className="px-4 py-2  text-gray-700 text-left">District</th>
-            <th className="px-4 py-2  text-gray-700 text-left">Province</th>
-            <th className="px-4 py-2  text-gray-700 text-left">Actions</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Names</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"> email</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Phone</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">District</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Province</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Actions</th>
           </tr>
         </thead>
         <tbody>

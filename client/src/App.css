@@ -423,7 +423,7 @@ width: 70%;
   gap: 20px;
 }
 .add-puppie-content1 {
-  flex-basis: 60%;
+  flex-basis: 70%;
   background-color: var(--bs-white);
   padding: 20px;  
   box-shadow: var(--box-shadow);
@@ -507,7 +507,7 @@ width: 70%;
   border-radius: 4px;
 }
 .add-puppie-content2 {
-  flex-basis: 40%;
+  flex-basis: 30%;
   padding: 20px;
   background-color: var(--bs-white);
   box-shadow: var(--box-shadow);

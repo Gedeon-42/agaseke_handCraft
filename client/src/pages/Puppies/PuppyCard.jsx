@@ -12,15 +12,16 @@ const PuppyCard = ({ product }) => {
     addToCart(product.id, 1, product.price,product.name, product.main_image); // Add 1 item with its price
   };
   return (
-    <div className="product-card">
+    <div className="product-card ">
+      
       {product.discount && (
         <span className="discount-badge">{product.discount}</span>
       )}
-      <Link to={`/puppies/${product.id}`}>
+      <Link to={`/product/${product.id}`}>
         <img src={`${apiUrl}/uploads/${product.main_image}`} alt={product.name} className="product-image" />
       </Link>{" "}
       {/* Replace with actual image source */}
-      <Link to={`/puppies/${product.id}`}>
+      <Link to={`/product/${product.id}`}>
         <h3>{product.name}</h3>
       </Link>
       <div className="reviews">

@@ -11,7 +11,7 @@ function DashSidebar() {
   return (
     <div className='sidebar-wrapper'>
       
-        <Link to="/"><img className='logo-sidebar' src="/images/image1.jpg" alt="" /></Link>
+        {/* <Link to="/"><img className='logo-sidebar' src="/images/image1.jpg" alt="" /></Link> */}
         <div className="sidebar-content">
         <div className="sidebar-desc">
         <AiOutlineDashboard />
@@ -29,10 +29,10 @@ function DashSidebar() {
         <FaOrcid/>
         <Link to="/admin/orders">Orders</Link>
         </div>
-        <div className="sidebar-desc">
+        {/* <div className="sidebar-desc">
         <FaUser/>
         <Link to="/admin/customers"> Customers</Link>
-        </div>
+        </div> */}
         <div className="sidebar-desc">
         <FaUsers/>
         <Link to="/admin/users">Users</Link>

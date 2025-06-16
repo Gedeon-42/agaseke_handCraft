@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import PuppyTab from "./PuppyTab";
 import PuppyCard from "./PuppyCard";
 import axiosClient from "../../axiosClient";
+import { ClipLoader } from "react-spinners";
 
 const PuppyTabs = () => {
   const [activeTab, setActiveTab] = useState("New Arrivals");
@@ -25,9 +26,11 @@ const PuppyTabs = () => {
         ...prevProducts,
         [activeTab]: response.data,
       }));
+
+      // console.log("Fetched products for tab:", activeTab, response.data);
     } catch (err) {
-      console.error("Error fetching puppies:", err);
-      setError("Failed to fetch puppies. Please try again later.");
+      console.error("Error fetching products:", err);
+      setError("Failed to fetch product. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -38,6 +41,11 @@ const PuppyTabs = () => {
     fetchProducts();
   }, [activeTab])
 
+if (loading) return <div>
+  <div className="spinner-container">
+        <ClipLoader  size={30} color={"#123abc"}  />
+      </div>
+</div>;
 
 
   return (

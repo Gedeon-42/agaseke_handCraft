@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import axiosClient from "../../../axiosClient";
+import {Editor} from "@tinymce/tinymce-react";
 import { toast, ToastContainer } from "react-toastify";
+import { FaTimes } from "react-icons/fa";
 
-function AddPuppie() {
+function AddPuppie({getPuppies,handleModel}) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -22,6 +24,7 @@ function AddPuppie() {
     setMainImagePreview(URL.createObjectURL(file));
   };
 
+
   // Handle additional images selection and preview
   const handleAdditionalImagesChange = (e) => {
     const files = Array.from(e.target.files); // Convert FileList to array
@@ -31,13 +34,20 @@ function AddPuppie() {
     setAdditionalImagePreviews(previewUrls);
   };
 
+    const editorRef = useRef(null);
+  const log = () => {
+    if (editorRef.current) {
+      console.log(editorRef.current.getContent());
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
   
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("description", description);
+    formData.append("description", editorRef.current.getContent());
     formData.append("price", price);
     formData.append("discount", discount);
     formData.append("category", category);
@@ -57,24 +67,33 @@ function AddPuppie() {
       toast.success("added successfully")
 
       setTimeout(() => {
-        window.location.href="/admin/products"
-      }, 4000);
-      
+       handleModel()
+         getPuppies()
+      }, 3000);
+     
     } catch (error) {
       console.error("Error adding product:", error);
-      toast.error("failed to add puppie")
+      toast.error("failed to add product")
     } finally {
       setLoading(false);
     }
   };
 
+
+
   return (
-    <div className="add-puppie-wrapper">
-      <div className="add-header">
-        <h1>Add Product</h1>
-      </div>
+    <div className="fixed z-[50] top-0 left-0 right-0 bottom-0 flex justify-center items-center">
+          {/* Background overlay */}
+      <div className="absolute top-0 left-0 right-0 bottom-0 bg-gray-900 opacity-50"></div>
+
       <ToastContainer/>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form onSubmit={handleSubmit} encType="multipart/form-data"
+       className="relative z-[60] space-y-4 bg-white p-6 rounded shadow-lg overflow-y-scroll max-h-[100vh]  w-[90%]"
+      >
+         <FaTimes
+          className="absolute top-4 right-4 text-gray-500 cursor-pointer"
+          onClick={handleModel}
+        />
         <div className="add-puppie-container">
           <div className="add-puppie-content1">
             <h1>General Information</h1>
@@ -89,31 +108,23 @@ function AddPuppie() {
               />
 
               <label htmlFor="Descritpion">Description</label>
-              <textarea
-                name="description"
-                value={description}
-                placeholder="Description"
-                onChange={(e) => setDescription(e.target.value)}
-                id=""
-              ></textarea>
+                <Editor
+            apiKey="66xufxp2kn9vf8szqm7iv0zv5whik4e4h3xh7agjwkz5gjhf" // api key
+            // value={course.description}
+            onInit={(evt, editor) => (editorRef.current = editor)}
+            init={{
+              height: 300,
+              menubar: false,
+           
+              toolbar:
+                "undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | image",
+            }}
+          />
+             
            
             </div>
       
-            <div className="price-discount">
-              <div className="price1">
-                <label htmlFor="price">price</label>
-                <input
-                  type="text"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  placeholder="price"
-                />
-              </div>
-              <div className="discount1">
-                <label htmlFor="discount">discount</label>
-                <input type="text" value={discount} onChange={(e)=>setDiscount(e.target.value)} placeholder="discount" />
-              </div>
-            </div>
+            
             <button className="btn-add-puppie2" type="submit">
          {loading ? (<>Loading...</>):(<>Add Product</>)} 
         </button>
@@ -160,6 +171,21 @@ function AddPuppie() {
                     }}
                   />
                 ))}
+              </div>
+            </div>
+            <div className="price-discount">
+              <div className="price1">
+                <label htmlFor="price">price</label>
+                <input
+                  type="text"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  placeholder="price"
+                />
+              </div>
+              <div className="discount1">
+                <label htmlFor="discount">discount</label>
+                <input type="text" value={discount} onChange={(e)=>setDiscount(e.target.value)} placeholder="discount" />
               </div>
             </div>
             <div className="puppie-category">

@@ -518,11 +518,10 @@
   
   .product-image {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
   }
-  
-  .price {
+   .price {
     display: flex;
     justify-content: center;
     gap: 10px;

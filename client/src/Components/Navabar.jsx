@@ -5,7 +5,8 @@ import { usestateContext } from '../Context/ContextProvider';
 
 
 function Navabar() {
-  const { cartItemCount } = usestateContext();
+  const { cartItemCount,user } = usestateContext();
+  
   return (
    
       <div className="navbar-container">
@@ -25,8 +26,13 @@ function Navabar() {
           <Link>About us</Link>
         </div>
         <div className="auth-wrapper">
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+          {!user ?(<>   <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link></>):(
+            <>
+            <p>Logout</p>
+            </>
+          )}
+       
           <div className="cart-container">
           <Link to="/cart"><FaCartShopping className='cart'/></Link>
           <div className="cart-numbers">
@@ -39,5 +45,6 @@ function Navabar() {
    
   )
 }
+
 
 export default Navabar

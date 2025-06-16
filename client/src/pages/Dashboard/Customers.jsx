@@ -75,7 +75,7 @@ useEffect(()=>{
               </tr>
             ))
           ) : (
-            <p>No Users available at the moment.</p>
+            <p className="text-center w-full">No Customers available at the moment.</p>
           )}
         </tbody>
       </table>
