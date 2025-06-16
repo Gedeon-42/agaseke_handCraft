@@ -29,7 +29,7 @@ function Orders() {
 
     fetchOrders();
   });
-
+  
    const handleViewModel = ()=>{
     setViewModel(!viewModel)
    }
@@ -46,8 +46,7 @@ function Orders() {
   return (
     <div className="overflow-x-auto relative ">
       <div className="mx-[20px] mt-[30px] mb-[20px] bg-white shadow-md sm:rounded-lg p-[10px]">
-        <h1 className="text-[20px] font-bold text-gray-700">Orders</h1>
-        
+        <h1 className="text-[20px] font-bold text-gray-700">Orders</h1>        
       </div>
 {
   viewModel && <>
@@ -57,18 +56,18 @@ function Orders() {
       <table className="min-w-full bg-white mr-[20px] ml-[20px] mt-[30px] border shadow-md border-gray-200  rounded-lg">
         <thead className="bg-gray-100">
           <tr>
-            <th className="px-4 py-2  text-gray-700 text-left">No</th>
-            <th className="px-4 py-2  text-gray-700 text-left">Names</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Names</th>
             {/* <th className="px-4 py-2  text-gray-700 text-left">Product</th> */}
 
-            <th className="px-4 py-2  text-gray-700 text-left">email</th>
-            <th className="px-4 py-2  text-gray-700 text-left"> District</th>
-            <th className="px-4 py-2  text-gray-700 text-left" >Sector</th>
-            <td className="px-4 py-2  text-gray-700 text-left">Phone</td>
-            <th className="px-4 py-2  text-gray-700 text-left" > Date</th>
-               <th className="px-4 py-2  text-gray-700 text-left">Amount</th>
-            <th className="px-4 py-2  text-gray-700 text-left" > Status</th>
-            <th className="px-4 py-2  text-gray-700 text-left">Actions</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">email</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> District</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >Sector</th>
+            <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</td>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" > Date</th>
+               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" > Status</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -76,7 +75,6 @@ function Orders() {
             orders?.map((order, index) => (
               <tr key={order.id} className="border-b border-sky-500 hover:bg-gray-50">
                 <td className="px-4 py-2 text-[14px]">{index + 1}</td>
-
                 <td className="px-4 py-2 text-[14px]">
                   {order.user
                     ? `${order.user.first_name} ${order.user.last_name}`

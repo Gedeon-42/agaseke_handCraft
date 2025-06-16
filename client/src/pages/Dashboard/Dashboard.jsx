@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { BsThreeDots } from "react-icons/bs";
 import { FaCaretUp, FaDollarSign } from "react-icons/fa";
 import SalesChart from "./components/SalesChart";
 import Orders from "./Orders";
+import axiosClient from "../../axiosClient";
 
 function Dashboard() {
     const [summary, setSummary] = useState(null);
-  const dataPieChart = [
-    { name: "Falcon", value: 58, color: "#007bff" },
-    { name: "Sparrow", value: 21, color: "#0dcaf0" },
-    { name: "Phoenix", value: 22, color: "#ff5733" },
-  ];
+    const[users,setUsers] = useState(null)
+  useEffect(() => {
+    axiosClient.get('/orders-summary')
+      .then(res => setSummary(res.data))
+      .catch(err => console.error(err));
+  }, []);
+ useEffect(() => {
+    axiosClient.get('/users-summary')
+      .then(res => setUsers(res.data))
+      .catch(err => console.error(err));
+  }, []);
+
+ if (!summary) return <p className="text-center">Loading...</p>;
+  if (!users) return <p className="text-center">Loading...</p>;
+
   return (
     <div className="p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -21,7 +32,7 @@ function Dashboard() {
             <BsThreeDots />
           </div>
           <div className="flex flex-col gap-[5px]">
-            <h1 className="font-bold">200000 Rwf</h1>
+            <h1 className="font-bold">25000Rwf</h1>
           </div>
 
           <div className="flex items-center mt-2">
@@ -49,11 +60,11 @@ function Dashboard() {
             <BsThreeDots />
           </div>
           <div className="flex flex-col gap-[5px]">
-            <h1 className="font-bold">145</h1>
+            <h1 className="font-bold">{summary.total_orders}</h1>
           </div>
 
           <div className="flex items-center mt-2">
-            <span className="text-sm font-medium text-green-600">+ 12 %</span>
+            <span className="text-sm font-medium text-green-600">+ {summary.growth_percentage}%</span>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,21 +79,21 @@ function Dashboard() {
               ></path>
             </svg>
 
-            <span class="text-xs text-gray-500 ml-1">vs last month</span>
+            <span class="text-xs text-gray-500 ml-1"> {summary.comparison_text}</span>
           </div>
         </div>
 
         <div className="border border-gray-300 rounded-lg shadow p-5 bg-white  ">
           <div className="flex justify-between items-start">
-            <h1 className="text-gray-300 text-[17px]">Total Customers</h1>
+            <h1 className="text-gray-300 text-[17px]">Total Users</h1>
             <BsThreeDots />
           </div>
           <div className="flex flex-col gap-[5px]">
-            <h1 className="font-bold">408</h1>
+            <h1 className="font-bold">{users.total_users}</h1>
           </div>
 
           <div className="flex items-center mt-2">
-            <span className="text-sm font-medium text-green-600">+ 12 %</span>
+            <span className="text-sm font-medium text-green-600">+ {users.growth_percentage} %</span>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +108,7 @@ function Dashboard() {
               ></path>
             </svg>
 
-            <span class="text-xs text-gray-500 ml-1">vs last month</span>
+            <span class="text-xs text-gray-500 ml-1">{users.comparison_text}</span>
           </div>
         </div>
         <div className="border border-gray-300 rounded-lg shadow p-5 bg-white  ">

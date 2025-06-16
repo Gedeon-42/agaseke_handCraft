@@ -8,8 +8,7 @@ import { usestateContext } from '../Context/ContextProvider'
 function Navbar() {
 
   const {cartItemCount,user}=usestateContext()
-
-   const[showProfile,setProfile] = useState(false)
+ const[showProfile,setProfile] = useState(false)
   const handleProfile = ()=>{
     setProfile(!showProfile)
   }
@@ -39,16 +38,16 @@ function Navbar() {
             </>
           ):(
              <div className="flex items-center space-x-4">
-                    <div className="relative">
+                    <div onMouseLeave={handleProfile} onMouseEnter={handleProfile} className="relative">
                     
-                    <div className="flex items-center space-x-2">
+                    <div  className="flex items-center space-x-2">
                       <div className="h-8 w-8 bg-orange-400 rounded-full flex items-center justify-center">
                         <User className="h-5 w-5 text-white" />
                       </div>
                       {/* <span className="text-sm font-medium text-gray-900"> Gedeon</span> */}
                       <Link  className="auth-user">
                  
-                  <FaAngleDown onClick={handleProfile} />
+                  <FaAngleDown   />
                 </Link>
                     </div>
                     {showProfile &&(
