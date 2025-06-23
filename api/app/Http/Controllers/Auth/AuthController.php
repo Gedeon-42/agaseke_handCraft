@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
@@ -43,4 +44,27 @@ class AuthController extends Controller
         $token = $user->createToken('main')->plainTextToken;
         return response(compact('user', 'token'));
     }
+
+     public function usersSummary()
+    {
+    
+        $currentMonth = Carbon::now()->month;
+        $lastMonth = Carbon::now()->subMonth()->month;
+
+        $currentMonthOrders = User::whereMonth('created_at', $currentMonth)->count();
+        $lastMonthOrders = User::whereMonth('created_at', $lastMonth)->count();
+        // Calculate growth percentage
+        if ($lastMonthOrders > 0) {
+            $growth = (($currentMonthOrders - $lastMonthOrders) / $lastMonthOrders) * 100;
+        } else {
+            $growth = $currentMonthOrders > 0 ? 100 : 0;
+        }
+
+        return response()->json([
+            'total_users' => $currentMonthOrders,
+            'growth_percentage' => round($growth, 2),
+            'comparison_text' => 'vs last month'
+        ]);
+    }
+    
 }

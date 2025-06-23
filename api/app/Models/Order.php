@@ -5,12 +5,14 @@ namespace App\Models;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\OrderItem;
+use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id',
         'email',
@@ -19,7 +21,6 @@ class Order extends Model
         'cell',
         'street',
         'phone',
-        
         'total_price',
         'quantity',
         'status',
@@ -35,8 +36,16 @@ class Order extends Model
         return $this->belongsTo(Product::class);
     }
 
+
      public function items()
     {
         return $this->hasMany(OrderItem::class);
     }
+
+
+    public function transactions(){
+        return $this->hasMany(Transaction::class);
+    }
 }
+
+

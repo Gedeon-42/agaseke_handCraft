@@ -65,6 +65,7 @@ class ProductController extends Controller
             'main_image' => $mainImagePath,
             'is_featured' => $request->is_featured, // Ensure this is included
         ]);
+        
 
         // Handle additional images upload
         if ($request->hasFile('additionalImages')) {
