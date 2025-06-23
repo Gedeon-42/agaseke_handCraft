@@ -40,7 +40,7 @@ function Cart() {
       <div className="cart-empty">
         <h2>Your cart is empty!</h2>
         <Link to="/puppies">
-          <button>Browse Puppies</button>
+          <button>Browse Products</button>
         </Link>
       </div>
     );

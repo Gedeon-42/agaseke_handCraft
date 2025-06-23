@@ -22,6 +22,7 @@ import Signup from "./pages/Auth/Signup";
 import NotFound from "./pages/NotFound";
 import Checkout from "./pages/Cart/Checkout";
 import ProfilePage from "./pages/Dashboard/ProfilePage";
+import SelectPaymentMethod from "./pages/Cart/SelectPayment";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path:"/profile",
         element:<ProfilePage/>
+      },
+      {
+        path:"/payment",
+        element:<SelectPaymentMethod/>
       }
     ],
   },

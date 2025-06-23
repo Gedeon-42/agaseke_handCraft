@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { usestateContext } from "../../Context/ContextProvider";
 import env from "../../env";
 import axiosClient from "../../axiosClient";
+import { toast, ToastContainer } from "react-toastify";
+import { ClipLoader } from "react-spinners";
 
 const CheckoutPage = () => {
   const { cartItems } = usestateContext();
   const apiUrl = env.REACT_APP_API_URL;
+  const[loading,setLoading]=useState(false)
   const calculateTotal = () => {
     return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   };
@@ -25,6 +28,7 @@ const CheckoutPage = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const orderData = {
       email: formData.email,
       street: formData.street,
@@ -42,19 +46,28 @@ const CheckoutPage = () => {
         image: item.image,
       })),
     };
-    console.log("Order Data:", orderData);
+    // console.log("Order Data:", orderData);
     try {
       const response = await axiosClient.post("/orders", orderData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      alert("Order placed successfully!");
-      // Optionally clear form and cart here
+       const orderId = response.data.order.id;
+       console.log(response.data.order.id);
+   toast.success("Order placed successfully");
+   setTimeout(() => {
+         // Redirect to payment page with orderId
+    window.location.href = `/payment?order_id=${orderId}`;
+   }, 3000);
+    
     } catch (error) {
+      toast.error("Failed to place order");
+      setLoading(false);
       console.error("Checkout failed:", error.response?.data || error.message);
     }
   };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -151,7 +164,7 @@ const CheckoutPage = () => {
           </div>
         </div>
       </div>
-
+<ToastContainer/>
       {/* Order Summary */}
       <div className="w-full lg:w-1/3 bg-white p-6 rounded-lg shadow">
         <h2 className="text-2xl font-semibold mb-6">Your order</h2>
@@ -163,7 +176,7 @@ const CheckoutPage = () => {
         </div>
         {/* Order Items */}
         {cartItems.map((item) => (
-          <div className="space-y-6">
+          <div key={item.id} className="space-y-6">
             <div className="border-b border-[#d3d3d3]  pb-4 mb-2 ">
               <p className="font-medium">
                 {item.name} × {item.quantity}
@@ -172,6 +185,7 @@ const CheckoutPage = () => {
                 <span className="font-semibold">Delivery Time::</span> 2-5
                 business days
               </p>
+
 
               <p className="font-bold mt-1">RWF {item.price}</p>
             </div>
@@ -182,7 +196,7 @@ const CheckoutPage = () => {
           type="submit"
           className="bg-black cursor-pointer text-white py-2 px-4 rounded mt-4 w-full"
         >
-          Place Order
+         {loading ? (<ClipLoader size={12} color={'#fff'}/>) : "Place Order"}
         </button>
       </div>
     </form>
