@@ -18,6 +18,7 @@ function Cart() {
       0
     );
   };
+  
 
   useEffect(() => {
     const fetchData = async () => {

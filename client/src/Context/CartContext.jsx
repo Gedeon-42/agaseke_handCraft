@@ -16,6 +16,7 @@ export const CartProvider = ({ children }) => {
       console.error("Error fetching cart:", error);
     }
   };
+  
   // Add an item to the cart
   const addToCart = async (puppieId, quantity, price) => {
     try {

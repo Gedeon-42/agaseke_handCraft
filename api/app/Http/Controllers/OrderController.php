@@ -25,6 +25,8 @@ class OrderController extends Controller
         $total = collect($request->items)->sum(function ($item) {
             return $item['price'] * $item['quantity'];
         });
+        
+
         $user = auth()->user();
         $order = Order::create([
             'user_id' => $user->id,
@@ -84,6 +86,7 @@ class OrderController extends Controller
             $growth = $currentMonthOrders > 0 ? 100 : 0;
         }
 
+        
         return response()->json([
             'total_orders' => $currentMonthOrders,
             'growth_percentage' => round($growth, 2),

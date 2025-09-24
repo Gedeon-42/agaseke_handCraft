@@ -16,6 +16,7 @@ const ProductCard = ({ product }) => {
  
  setLoading(false);
     };
+
   return (
     <div className="product-card">
       
@@ -24,12 +25,14 @@ const ProductCard = ({ product }) => {
       <Link to={`/product/${product.id}`}><h3>{product.name}</h3></Link>
       <div className="rating">⭐⭐⭐⭐⭐ (1 review)</div>
       <div className="price">
-        <span className="current-price">${product.price}</span>
+        <span className="current-price">{product.price} Rwf</span>
         {product.originalPrice && <span className="original-price">${product.originalPrice}</span>}
       </div>
       <button className="add-to-cart" onClick={handleAddToCart}>
         {loading ? (<ClipLoader size={12} color={'#fff'}/>) : "Add to Cart"}
       </button>
+
+      
     </div>
   );
 };

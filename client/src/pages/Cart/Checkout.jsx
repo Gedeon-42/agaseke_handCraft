@@ -13,6 +13,7 @@ const CheckoutPage = () => {
     return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   };
 
+  
   const [formData, setFormData] = useState({
     email: "",
     street: "",

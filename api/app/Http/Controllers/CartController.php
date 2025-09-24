@@ -112,6 +112,8 @@ class CartController extends Controller
 
         return response()->json(['message' => 'Item removed from cart']);
     }
+
+
     public function clearCart()
     {
         $cart = auth()->user()->cart;
@@ -119,5 +121,6 @@ class CartController extends Controller
 
         return response()->json(['message' => 'Cart cleared']);
     }
+    
 
 }

@@ -15,6 +15,7 @@ class ProductController extends Controller
         $puppies = Product::all();
         return response()->json($puppies);
     }
+    
 
     public function arrivals(Request $request)
     {

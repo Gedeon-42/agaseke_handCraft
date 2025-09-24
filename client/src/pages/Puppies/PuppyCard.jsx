@@ -28,7 +28,7 @@ const PuppyCard = ({ product }) => {
         <span>⭐⭐⭐⭐⭐ ({product.reviews} review)</span>
       </div>
       <div className="price">
-        <span>${product.price}</span>
+        <span>{product.price} Rwf</span>
         {product.originalPrice && (
           <span className="original-price">${product.originalPrice}</span>
         )}

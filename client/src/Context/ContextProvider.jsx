@@ -85,6 +85,7 @@ export const ContextProvider = ({ children }) => {
     // Sync guest cart to the backend when user logs in
   };
 
+
   const deleteCart = async (productId, quantity, price) => {
     const cartItem = { product_id: productId, quantity, price };
     const token = localStorage.getItem("Token");
@@ -109,6 +110,7 @@ export const ContextProvider = ({ children }) => {
         guestCart.pop(cartItem);
       }
 
+      
       localStorage.setItem("guest_cart", JSON.stringify(guestCart));
       setCartItems(guestCart);
       setCartItemCount(calculateItemCount(guestCart));
@@ -154,6 +156,7 @@ export const ContextProvider = ({ children }) => {
       console.log("Signup response:", res.data);
       return res.data;
     },
+
     onError: (err) => {
       // alert(err);
       console.log(err);
@@ -161,9 +164,9 @@ export const ContextProvider = ({ children }) => {
     },
     onSuccess: (data) => {
       console.log("Signup success:", data);
-      // setUserState(data.user);
+       setUserState(data.user);
       setToken(data.token);
-      // setToken(data.token);
+       setToken(data.token);
       if (data.user.is_admin === 1) {
         window.location.href = "/admin";
       } else {

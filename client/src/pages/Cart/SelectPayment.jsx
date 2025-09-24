@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import axiosClient from '../../axiosClient';
+import { toast , ToastContainer} from 'react-toastify';
 import { useSearchParams } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
 export default function SelectPaymentMethod() {
@@ -23,6 +24,7 @@ export default function SelectPaymentMethod() {
       });
       if (response.data.status === 'pending') {
         setStatus('Payment initiated. Please check your phone to confirm.');
+        toast.success("Payment Initiated, check your phone to confirm")
       } 
       // else {
       //   setStatus('Something went wrong: ' + JSON.stringify(response.data));
@@ -40,7 +42,7 @@ export default function SelectPaymentMethod() {
   return (
     <div className="p-6 max-w-md mx-auto">
       <h2 className="text-xl font-bold mb-4">Choose Payment Method</h2>
-
+<ToastContainer/>
       <select
         value={network}
         onChange={(e) => setNetwork(e.target.value)}
